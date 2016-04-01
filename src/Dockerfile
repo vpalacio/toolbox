@@ -6,7 +6,7 @@ FROM alpine:3.3
 MAINTAINER Victor Palacio <vpalacio@gmail.com>
 
 # Install my favorite apps 
-RUN apk add --update \
+RUN apk add --no-cache \
     vim \
     nano \
     tmux \
@@ -16,7 +16,6 @@ RUN apk add --update \
     tshark \
     htop \
     openssh-client \
-    sipcalc \
-    && rm -rf /var/cache/apk/*
+    sipcalc
 
 ENTRYPOINT ["sh"]
