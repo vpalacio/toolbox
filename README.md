@@ -1,2 +1,2 @@
 # toolbox
-Build Status: https://circleci.com/gh/:vpalacio/:toolbox.png?circle-token=:circle-token
+[![Circle CI](https://circleci.com/gh/vpalacio/toolbox/tree/master.svg?style=shield)](https://circleci.com/gh/vpalacio/toolbox/tree/master)
