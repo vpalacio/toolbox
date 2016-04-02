@@ -10,7 +10,8 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t vpalacio/toolbox src/.
+    - docker version
+    - script/build
 
 test:
   override:
