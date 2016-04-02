@@ -1,0 +1,9 @@
+docker run -d vpalacio/toolbox vim --version
+docker run -d vpalacio/toolbox nano --version
+docker run -d vpalacio/toolbox iperf -v
+docker run -d vpalacio/toolbox tshark -v
+docker run -d vpalacio/toolbox htop -v
+docker run -d vpalacio/toolbox mtr -v
+docker run -d vpalacio/toolbox tmux -V
+docker run -d vpalacio/toolbox nmap -v
+docker run -d vpalacio/toolbox sipcalc -v
