@@ -7,3 +7,7 @@
 Project URL: https://github.com/vpalacio/toolbox
 
 Docker registry: https://registry.hub.docker.com/u/vpalacio/toolbox/
+
+# License
+
+See [License](https://github.com/vpalacio/toolbox/blob/master/LICENSE)
