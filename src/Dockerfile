@@ -13,8 +13,7 @@ RUN apk add --no-cache \
     nano \
     nmap \
     openssh-client \
-    sipcalc 
-    tcpdump \
+    sipcalc \ 
     tmux \
     tshark \
     vim \
