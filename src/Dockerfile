@@ -11,6 +11,8 @@ MAINTAINER Victor Palacio <vpalacio@gmail.com>
 # https://github.com/gliderlabs/docker-alpine/blob/master/docs/usage.md#disabling-cache
  
 RUN apk add --no-cache \
+    bash \
+    bash-completion \
     htop \
     iperf \
     mtr \
