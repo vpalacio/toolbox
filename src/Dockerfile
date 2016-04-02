@@ -7,14 +7,14 @@ MAINTAINER Victor Palacio <vpalacio@gmail.com>
 
 # Install my favorite apps 
 RUN apk add --no-cache \
-    vim \
-    nano \
-    tmux \
-    mtr \
-    nmap \
-    iperf \
-    tshark \
     htop \
+    iperf \
+    mtr \
+    nano \
+    nmap \
     openssh-client \
-    sipcalc
-
+    sipcalc 
+    tcpdump \
+    tmux \
+    tshark \
+    vim \
