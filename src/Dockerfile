@@ -18,4 +18,3 @@ RUN apk add --no-cache \
     openssh-client \
     sipcalc
 
-ENTRYPOINT ["sh"]

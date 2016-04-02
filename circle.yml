@@ -4,3 +4,14 @@ machine:
     - sudo chmod 0755 /usr/bin/docker
   services:
     - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t vpalacio/toolbox/src .
+
+test:
+  override:
+    - docker run -d vpalacio/toolbox tshark -v
+
+
