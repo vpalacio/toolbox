@@ -1,4 +1,6 @@
 machine:
+  environment:
+    TAG: $(date +%Y%m%dT%H%M)-git-${CIRCLE_SHA1:0:7}
   pre:
     - sudo curl -L -o /usr/bin/docker 'https://s3-external-1.amazonaws.com/circle-downloads/docker-1.9.1-circleci'
     - sudo chmod 0755 /usr/bin/docker
@@ -21,3 +23,15 @@ test:
     - docker run -d vpalacio/toolbox tmux -V
     - docker run -d vpalacio/toolbox nmap -v
     - docker run -d vpalacio/toolbox sipcalc -v
+
+deployment:
+  master:
+    branch: master
+    owner: vpalacio
+    commands:
+      - docker login -e ${mail} -u ${user} -p ${pass}
+      - docker tag vpalacio/toolbox vpalacio/toolbox:${TAG}
+      - docker push vpalacio/toolbox:${TAG}
+      - docker push vpalacio/toolbox:latest
+      - docker logout
+
