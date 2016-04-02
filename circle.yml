@@ -23,9 +23,4 @@ deployment:
     branch: master
     owner: vpalacio
     commands:
-      - docker login -e ${mail} -u ${user} -p ${pass}
-      - docker tag vpalacio/toolbox vpalacio/toolbox:${TAG}
-      - docker push vpalacio/toolbox:${TAG}
-      - docker push vpalacio/toolbox:latest
-      - docker logout
-
+      - script/publish
