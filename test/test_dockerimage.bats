@@ -10,6 +10,10 @@
     docker run --entrypoint apk "${IMAGE}" --no-cache info -d bash-completion
 }
 
+@test "drill is installed" {
+    docker run --entrypoint sh "${IMAGE}" -c "which drill"
+}
+
 @test "htop is installed" {
     docker run --entrypoint sh "${IMAGE}" -c "which htop"
 }
