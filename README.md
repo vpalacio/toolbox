@@ -11,3 +11,14 @@ Docker registry: https://registry.hub.docker.com/u/vpalacio/toolbox/
 # License
 
 See [License](https://github.com/vpalacio/toolbox/blob/master/LICENSE)
+
+# Usage
+
+You can begin the toolbox by using `docker run`:
+
+   * `--dns-search`: Pass it some arguments like DNS servers
+   * `--name`: give it a name
+   * `-d`: Run container in background and print container ID
+   * `-t`: Allocate a pseudo-TTY (so you can attach to it)
+
+`docker run --dns-search=dns1.mydomain.com --dns-search=dns2.mydomain.com --name=cool_name -d -t vpalacio/toolbox`
