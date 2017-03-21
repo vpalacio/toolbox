@@ -4,6 +4,8 @@
 [![Image Size](https://img.shields.io/imagelayers/image-size/vpalacio/toolbox/latest.svg)](https://imagelayers.io/?images=vpalacio/toolbox:latest 'View image size and layers')&nbsp;
 [![Docker Registry](https://img.shields.io/docker/pulls/vpalacio/toolbox.svg)](https://registry.hub.docker.com/u/vpalacio/toolbox)&nbsp;
 
+[![](https://images.microbadger.com/badges/image/vpalacio/toolbox.svg)](https://microbadger.com/images/vpalacio/toolbox "Get your own image badge on microbadger.com")
+
 Project URL: https://github.com/vpalacio/toolbox
 
 Docker registry: https://registry.hub.docker.com/u/vpalacio/toolbox/
