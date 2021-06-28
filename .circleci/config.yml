@@ -2,11 +2,19 @@ version: 2.1
 orbs:
   bats: circleci/bats@1.0.0
 
-jobs:
-  build:
-    # Use `docker:stable` as the Docker container to run this job in
+# Define a common Docker container and environment for jobs
+executors:
+  docker-publisher:
+    # Define the image tag
+    environment:
+      IMAGE_TAG: vpalacio/toolbox:latest
+    # Use `docker:stable` as the Docker image for this executor
     docker:
       - image: docker:stable
+
+jobs:
+  build:
+    executor: docker-publisher
 
     steps:
       # Checkout the repository files
@@ -26,6 +34,3 @@ jobs:
           name: Build Docker image
           command: |
             script/build
-
-      - bats/run:
-          path: script/test
