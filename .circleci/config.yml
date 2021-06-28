@@ -12,8 +12,3 @@ jobs:
 
       # Set up a separate Docker environment to run `docker` commands in
       - setup_remote_docker
-
-      # Build the hello world image
-      - run:
-          name: Build Docker image
-          command: docker build --tag update_circleci .
