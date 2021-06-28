@@ -13,7 +13,13 @@ jobs:
       # Set up a separate Docker environment to run `docker` commands in
       - setup_remote_docker
 
-      # Build the hello world image
+      # Build the image
+      - run:
+          name: Lint Dockerfile
+          command: |
+            script/lint
+      
+      # Build the image
       - run:
           name: Build Docker image
           command: |
