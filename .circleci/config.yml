@@ -16,4 +16,5 @@ jobs:
       # Build the hello world image
       - run:
           name: Build Docker image
-          command: docker build --rm src/
+          command: |
+            script/build
