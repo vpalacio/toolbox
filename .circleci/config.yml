@@ -42,6 +42,6 @@ workflows:
       # Run the build first
       - build
       - bats/run:
-          path: script/test
+          path: test/test_dockerimage.bats
           requires:
             - build
