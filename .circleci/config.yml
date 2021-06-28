@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  bats: circleci/bats@1.0.0
 
 jobs:
   build:
@@ -13,7 +15,7 @@ jobs:
       # Set up a separate Docker environment to run `docker` commands in
       - setup_remote_docker
 
-      # Build the image
+      # Lint Dockerfile
       - run:
           name: Lint Dockerfile
           command: |
@@ -24,3 +26,7 @@ jobs:
           name: Build Docker image
           command: |
             script/build
+
+      # Test the image
+      - bats/run:
+          path: script/test
