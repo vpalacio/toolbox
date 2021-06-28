@@ -42,6 +42,6 @@ workflows:
       # Run the build first
       - build
       - bats/run:
-          path: script/tests
+          path: script/test
           requires:
             - build
