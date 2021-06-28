@@ -34,3 +34,14 @@ jobs:
           name: Build Docker image
           command: |
             script/build
+
+workflows:
+  version: 2
+  build-push:
+    jobs:
+      # Run the build first
+      - build
+      - bats/run:
+          path: script/tests
+          requires:
+            - build
