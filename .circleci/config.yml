@@ -27,8 +27,5 @@ jobs:
           command: |
             script/build
 
-workflows:
-  test-my-app:
-    jobs:
       - bats/run:
-          path: script/build
+          path: script/test
