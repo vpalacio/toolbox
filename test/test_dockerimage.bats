@@ -3,7 +3,7 @@
 . test/vars.bash
 
 @test "Bash is installed" {
-    docker run --entrypoint sh "${IMAGE}" -c "which bash"
+    docker run --entrypoint sh vpalacio/toolbox -c "which bash"
 }
 
 @test "bash-completion is installed" {
