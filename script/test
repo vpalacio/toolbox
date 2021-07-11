@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 IMAGE="vpalacio/toolbox"
 
 docker run --entrypoint sh "${IMAGE}" -c "which bash"
