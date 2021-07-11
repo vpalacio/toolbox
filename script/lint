@@ -1,5 +1,3 @@
 #!/bin/sh
 
-. test/vars.bash
-
 docker run --rm --interactive hadolint/hadolint hadolint --ignore DL3018 - < src/Dockerfile
