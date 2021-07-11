@@ -1,4 +1,3 @@
 #!/bin/sh
 
-info 'Run test harness'
-run docker run --entrypoint sh vpalacio/toolbox -c "which bash"
+docker run --entrypoint sh vpalacio/toolbox -c "which bash"
