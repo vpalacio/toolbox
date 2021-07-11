@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+set -eEu
+set -o pipefail
 
-echo "Run test harness via BATS"
-bats test/*.bats
+info 'Run test harness'
+run docker run --entrypoint sh vpalacio/toolbox -c "which bash"

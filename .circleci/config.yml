@@ -35,13 +35,19 @@ jobs:
           command: |
             script/build
 
+      # Test the image
+      - run:
+          name: Test Docker image
+          command: |
+            script/test
+
 workflows:
   version: 2
   build-push:
     jobs:
       # Run the build first
       - build
-      - bats/run:
-          path: test/test_dockerimage.bats
-          requires:
-            - build
+ #     - bats/run:
+ #         path: test/test_dockerimage.bats
+ #         requires:
+ #           - build
