@@ -1,6 +1,4 @@
-#!/bin/bash
-set -eEu
-set -o pipefail
+#!/bin/sh
 
 info 'Run test harness'
 run docker run --entrypoint sh vpalacio/toolbox -c "which bash"
