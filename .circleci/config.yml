@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  bats: circleci/bats@1.0.0
 
 # Define a common Docker container and environment for jobs
 executors:
@@ -47,7 +45,3 @@ workflows:
     jobs:
       # Run the build first
       - build
- #     - bats/run:
- #         path: test/test_dockerimage.bats
- #         requires:
- #           - build
