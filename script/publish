@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -z ${CIRCLECI} ]; then
   echo This only runs on circleci. >&2
@@ -12,13 +12,13 @@ if [ ${CIRCLE_BRANCH} == "master" ]; then
   TAG="$(date +%Y%m%dT%H%M)-git-${CIRCLE_SHA1:0:7}"
   tags="${TAG} latest"
 else
-  TAG="${CIRCLE_PR_USERNAME}_pull_${CIRCLE_PR_NUMBER}"
+  TAG="${CIRCLE_PROJECT_USERNAME}_pull_${CIRCLE_SHA1:0:7}"
   tags="${TAG}"
 fi
 
-docker login -e ${mail} -u ${user} -p ${pass} 
+echo "${pass}" | docker login --username "${user}" --password-stdin
 for tag in ${tags}; do
-  docker tag -f ${IMAGE} ${IMAGE}:${tag}
+  docker tag ${IMAGE} ${IMAGE}:${tag}
   docker push ${IMAGE}:${tag}
 done
 docker logout

@@ -1,4 +1,16 @@
 #!/bin/sh
+IMAGE="vpalacio/toolbox"
 
-echo "Run test harness via BATS"
-bats test/*.bats
+docker run --entrypoint sh "${IMAGE}" -c "which bash"
+docker run --entrypoint apk "${IMAGE}" --no-cache info -d bash-completion
+docker run --entrypoint sh "${IMAGE}" -c "which drill"
+docker run --entrypoint sh "${IMAGE}" -c "which htop"
+docker run --entrypoint sh "${IMAGE}" -c "which iperf"
+docker run --entrypoint sh "${IMAGE}" -c "which mtr"
+docker run --entrypoint sh "${IMAGE}" -c "which nano"
+docker run --entrypoint sh "${IMAGE}" -c "which nmap"
+docker run --entrypoint sh "${IMAGE}" -c "which ssh"
+docker run --entrypoint sh "${IMAGE}" -c "which sipcalc"
+docker run --entrypoint sh "${IMAGE}" -c "which tmux"
+docker run --entrypoint sh "${IMAGE}" -c "which tshark"
+docker run --entrypoint sh "${IMAGE}" -c "which vim"

@@ -1,0 +1,53 @@
+version: 2.1
+
+# Define a common Docker container and environment for jobs
+executors:
+  docker-publisher:
+    # Define the image tag
+    environment:
+      IMAGE_TAG: vpalacio/toolbox:latest
+    # Use `docker:stable` as the Docker image for this executor
+    docker:
+      - image: docker:stable
+
+jobs:
+  build:
+    executor: docker-publisher
+
+    steps:
+      # Checkout the repository files
+      - checkout
+
+      # Set up a separate Docker environment to run `docker` commands in
+      - setup_remote_docker
+
+      # Lint Dockerfile
+      - run:
+          name: Lint Dockerfile
+          command: |
+            script/lint
+      
+      # Build the image
+      - run:
+          name: Build Docker image
+          command: |
+            script/build
+
+      # Test the image
+      - run:
+          name: Test Docker image
+          command: |
+            script/test
+
+      # Publish the image
+      - run:
+          name: Publish Docker image
+          command: |
+            script/publish
+
+workflows:
+  version: 2
+  build-push:
+    jobs:
+      # Run the build first
+      - build
