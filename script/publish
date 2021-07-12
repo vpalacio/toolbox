@@ -16,7 +16,7 @@ else
   tags="${TAG}"
 fi
 
-docker login -u ${user} -p ${pass} 
+echo "${pass}" | docker login --username "${user}" --password-stdin
 for tag in ${tags}; do
   docker tag ${IMAGE} ${IMAGE}:${tag}
   docker push ${IMAGE}:${tag}
