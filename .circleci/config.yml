@@ -39,9 +39,23 @@ jobs:
           command: |
             script/test
 
+  push:
+    executor: docker-publisher
+    steps:
+      - setup_remote_docker
+
+      # Build the image
+      - run:
+          name: Publish Docker image
+          command: |
+            script/publish
+
 workflows:
   version: 2
   build-push:
     jobs:
       # Run the build first
       - build
+      - push:
+          requires:
+            - build
