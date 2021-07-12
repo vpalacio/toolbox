@@ -12,7 +12,7 @@ if [ ${CIRCLE_BRANCH} == "master" ]; then
   TAG="$(date +%Y%m%dT%H%M)-git-${CIRCLE_SHA1:0:7}"
   tags="${TAG} latest"
 else
-  TAG="${CIRCLE_PR_USERNAME}_pull_${CIRCLE_PR_NUMBER}"
+  TAG="${CIRCLE_PROJECT_USERNAME}_pull_${CIRCLE_SHA1:0:7}"
   tags="${TAG}"
 fi
 
