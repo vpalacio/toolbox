@@ -44,7 +44,7 @@ jobs:
     steps:
       - setup_remote_docker
 
-      # Build the image
+      # Publish the image
       - run:
           name: Publish Docker image
           command: |
