@@ -8,7 +8,7 @@ executors:
       IMAGE_TAG: vpalacio/toolbox:latest
     # Use `docker:stable` as the Docker image for this executor
     docker:
-      - image: docker:stable
+      - image: cimg/base:current
 
 jobs:
   build:
