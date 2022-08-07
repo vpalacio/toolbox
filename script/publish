@@ -1,4 +1,7 @@
 #!/bin/sh
+set -o nounset 
+set -o errexit 
+set -o xtrace
 
 if [ -z ${CIRCLECI} ]; then
   echo This only runs on circleci. >&2
