@@ -12,7 +12,7 @@ LABEL maintainer="Victor Palacio <vpalacio@gmail.com>"
 RUN apk add --no-cache \
     bash \
     bash-completion \
-    ca-certificate \
+    ca-certificates \
     drill \
     htop \
     iperf \
