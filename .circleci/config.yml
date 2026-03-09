@@ -5,7 +5,7 @@ executors:
     environment:
       IMAGE_TAG: vpalacio/toolbox:latest
     docker:
-      - image: docker:27-git
+      - image: docker:git
 
 jobs:
   lint:
