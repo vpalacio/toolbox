@@ -1,3 +1,4 @@
-#!/bin/sh
+#!/bin/bash
+set -euo pipefail
 
 docker run --rm --interactive hadolint/hadolint hadolint --ignore DL3018 -V - < src/Dockerfile

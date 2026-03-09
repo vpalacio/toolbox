@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+set -euo pipefail
+
 IMAGE="vpalacio/toolbox"
 
 docker run --entrypoint sh "${IMAGE}" -c "which bash"
@@ -14,3 +16,5 @@ docker run --entrypoint sh "${IMAGE}" -c "which sipcalc"
 docker run --entrypoint sh "${IMAGE}" -c "which tmux"
 docker run --entrypoint sh "${IMAGE}" -c "which tshark"
 docker run --entrypoint sh "${IMAGE}" -c "which vim"
+docker run --entrypoint sh "${IMAGE}" -c "which python3"
+docker run --entrypoint sh "${IMAGE}" -c "which update-ca-certificates"

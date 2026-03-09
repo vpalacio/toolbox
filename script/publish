@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 if [ -z ${CIRCLECI} ]; then
   echo This only runs on circleci. >&2
