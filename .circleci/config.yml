@@ -1,53 +1,77 @@
 version: 2.1
 
-# Define a common Docker container and environment for jobs
 executors:
   docker-publisher:
-    # Define the image tag
     environment:
       IMAGE_TAG: vpalacio/toolbox:latest
-    # Use `docker:stable` as the Docker image for this executor
     docker:
       - image: cimg/base:current
 
 jobs:
-  build:
+  lint:
     executor: docker-publisher
-
     steps:
-      # Checkout the repository files
       - checkout
-
-      # Set up a separate Docker environment to run `docker` commands in
       - setup_remote_docker
-
-      # Lint Dockerfile
       - run:
           name: Lint Dockerfile
-          command: |
-            script/lint
-      
-      # Build the image
+          command: script/lint
+
+  build:
+    executor: docker-publisher
+    steps:
+      - checkout
+      - setup_remote_docker
       - run:
           name: Build Docker image
-          command: |
-            script/build
+          command: script/build
+      - run:
+          name: Save Docker image
+          command: docker save -o /tmp/image.tar vpalacio/toolbox
+      - persist_to_workspace:
+          root: /tmp
+          paths:
+            - image.tar
 
-      # Test the image
+  test:
+    executor: docker-publisher
+    steps:
+      - checkout
+      - setup_remote_docker
+      - attach_workspace:
+          at: /tmp
+      - run:
+          name: Load Docker image
+          command: docker load -i /tmp/image.tar
       - run:
           name: Test Docker image
-          command: |
-            script/test
+          command: script/test
 
-      # Publish the image
+  publish:
+    executor: docker-publisher
+    steps:
+      - checkout
+      - setup_remote_docker
+      - attach_workspace:
+          at: /tmp
+      - run:
+          name: Load Docker image
+          command: docker load -i /tmp/image.tar
       - run:
           name: Publish Docker image
-          command: |
-            script/publish
+          command: script/publish
 
 workflows:
   version: 2
   build-push:
     jobs:
-      # Run the build first
-      - build
+      - lint
+      - build:
+          requires: [lint]
+      - test:
+          requires: [build]
+      - publish:
+          requires: [test]
+          filters:
+            branches:
+              only: master
