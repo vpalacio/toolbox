@@ -14,9 +14,6 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Install bash
-          command: apk add --no-cache bash
-      - run:
           name: Lint Dockerfile
           command: bash script/lint
 
@@ -25,9 +22,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: Install bash
-          command: apk add --no-cache bash
       - run:
           name: Build Docker image
           command: bash script/build
@@ -44,9 +38,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: Install bash
-          command: apk add --no-cache bash
       - attach_workspace:
           at: /tmp
       - run:
@@ -61,9 +52,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: Install bash
-          command: apk add --no-cache bash
       - attach_workspace:
           at: /tmp
       - run:
