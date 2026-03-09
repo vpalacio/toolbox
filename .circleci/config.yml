@@ -15,7 +15,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Lint Dockerfile
-          command: script/lint
+          command: bash script/lint
 
   build:
     executor: docker-publisher
@@ -24,7 +24,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Build Docker image
-          command: script/build
+          command: bash script/build
       - run:
           name: Save Docker image
           command: docker save -o /tmp/image.tar vpalacio/toolbox
@@ -45,7 +45,7 @@ jobs:
           command: docker load -i /tmp/image.tar
       - run:
           name: Test Docker image
-          command: script/test
+          command: bash script/test
 
   publish:
     executor: docker-publisher
@@ -59,7 +59,7 @@ jobs:
           command: docker load -i /tmp/image.tar
       - run:
           name: Publish Docker image
-          command: script/publish
+          command: bash script/publish
 
 workflows:
   version: 2
