@@ -2,8 +2,6 @@ version: 2.1
 
 executors:
   docker-publisher:
-    environment:
-      IMAGE_TAG: vpalacio/toolbox:latest
     docker:
       - image: cimg/base:current
 
@@ -27,7 +25,9 @@ jobs:
           command: bash script/build
       - run:
           name: Save Docker image
-          command: docker save -o /tmp/image.tar vpalacio/toolbox
+          command: |
+            . test/vars.bash
+            docker save -o /tmp/image.tar "${IMAGE}"
       - persist_to_workspace:
           root: /tmp
           paths:

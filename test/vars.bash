@@ -1,1 +1,1 @@
-IMAGE="vpalacio/toolbox"
+IMAGE="${IMAGE:-vpalacio/toolbox}"

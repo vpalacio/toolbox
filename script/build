@@ -3,4 +3,4 @@ set -euo pipefail
 
 . test/vars.bash
 
-docker build --rm -t ${IMAGE} src/
+docker build --rm -t "${IMAGE}" src/

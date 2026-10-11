@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-IMAGE="vpalacio/toolbox"
+. test/vars.bash
 
 docker run --entrypoint sh "${IMAGE}" -c "which bash"
 docker run --entrypoint apk "${IMAGE}" --no-cache info -d bash-completion
